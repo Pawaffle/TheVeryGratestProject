@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class SillyPalindromeChecker {
+public class PalindromeChecker {
 
     // This is the magical function that helps us spot if the phrase is a secret mirror image of itself!
     public static void main(String[] args) {
