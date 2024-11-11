@@ -3,6 +3,8 @@ import java.util.Scanner;
 // This is palindrome checker!!!
 public class PalindromeChecker {
 
+    // push'-push'-push'-push'-push'
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
