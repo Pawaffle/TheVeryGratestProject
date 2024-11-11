@@ -27,7 +27,7 @@ public class PalindromeChecker {
         return input.equals(reverseString(input));
     }
 
-    // Reverses the input string
+    // Reverses the input string.
     public static String reverseString(String input) {
         return new StringBuilder(input).reverse().toString();
     }
