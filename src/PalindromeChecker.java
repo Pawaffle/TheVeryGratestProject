@@ -7,26 +7,24 @@ public class PalindromeChecker {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Please enter a string to check if it's a palindrome:");
+        System.out.println("Enter text to check if it's a palindrome:");
         String input = scanner.nextLine();
 
-        String transformed = transformInput(input);
+        String transformedInput = cleanInput(input);
 
-        // Time to check if it’s a palindrome! It’s like a fun house mirror, but with words.
-        boolean isPalindrome = isPalindrome(transformed);
-        if (isPalindrome) {
-            System.out.println("Whoooa, this is a palindrome! 🤯");
+        if (isPalindrome(transformedInput)) {
+            System.out.println("The input is a palindrome.");
         } else {
-            System.out.println("Nope, this is not a palindrome! 😞");
+            System.out.println("The input is not a palindrome.");
         }
     }
 
-    // Transform the input into a lowercase, punctuation-free giggle-fest!
-    public static String transformInput(String input) {
+    // Removes punctuation and converts to lowercase for a standard comparison
+    public static String cleanInput(String input) {
         return input.toLowerCase().replaceAll("[,!]", "");
     }
 
-    // Let’s check if our silly transformed phrase is a palindrome, like a fun mirror image!
+    // Checks if the input string is a palindrome by comparing it to its reverse
     public static boolean isPalindrome(String input) {
         return input.equals(reverseString(input));
     }
