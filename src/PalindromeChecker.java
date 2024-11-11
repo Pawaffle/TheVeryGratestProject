@@ -4,39 +4,31 @@ public class PalindromeChecker {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter text to check if it's a palindrome:");
         String input = scanner.nextLine();
 
-        String transformed = transformInput(input);
+        String transformedInput = cleanInput(input);
 
-        boolean isPalindrome = checkPalindrome(transformed);
-        if (isPalindrome) {
-            System.out.println("The transformed input is a palindrome.");
+        if (isPalindrome(transformedInput)) {
+            System.out.println("The input is a palindrome.");
         } else {
-            System.out.println("The transformed input is not a palindrome.");
+            System.out.println("The input is not a palindrome.");
         }
     }
 
-    public static String transformInput(String input) {
-        input = input.toLowerCase();
-        input = input.replace(",", "");
-        input = input.replace("!", "");
-        return input;
+    // Removes punctuation and converts to lowercase for a standard comparison
+    public static String cleanInput(String input) {
+        return input.toLowerCase().replaceAll("[,!]", "");
     }
 
-    public static boolean checkPalindrome(String input) {
-        String reversed = reverseString(input);
-        if (input.equals(reversed)) {
-            return true;
-        } else {
-            return false;
-        }
+    // Checks if the input string is a palindrome by comparing it to its reverse
+    public static boolean isPalindrome(String input) {
+        return input.equals(reverseString(input));
     }
 
+    // Reverses the input string
     public static String reverseString(String input) {
-        StringBuilder reversed = new StringBuilder();
-        for (int i = input.length() - 1; i >= 0; i--) {
-            reversed.append(input.charAt(i));
-        }
-        return reversed.toString();
+        return new StringBuilder(input).reverse().toString();
     }
 }
